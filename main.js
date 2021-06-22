@@ -40,7 +40,7 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 app.use("/public", express.static(path.join(__dirname, 'public')));
 
-app.listen(5000, function(){
+app.listen(80, function(){
 
 }
     
@@ -179,7 +179,7 @@ app.get('/summoner', function(req, res){
                                     return response.json();
                                 })
                                 .then(data => {
-                                    
+
 
                                 })
 
