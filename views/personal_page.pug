@@ -11,6 +11,7 @@ head
         include style.css
     style
         include style2.css
+    
     style(type='text/css').
         #unqii___drop_down____2 {
             position: absolute;
@@ -7786,8 +7787,10 @@ head
             top: 282.85px;
             transform: matrix(1,0,0,1,0,0);
         }
-    
-body(style="font-family:'Roboto', serif; background-image: linear-gradient(black, rgba(32, 22, 35) 80%,  rgba(76, 26, 49) 100%) ; background-size: 100%; height: auto; background-position: center; background-attachment: fixed;")
+    script.
+        style
+            @import url(//fonts.googleapis.com/earlyaccess/notosansarmenian.css);
+body(style="font-family: 'Noto Sans Armenian', sans-serif; background-image: linear-gradient(black, rgba(32, 22, 35) 80%,  rgba(76, 26, 49) 100%) ; background-size: 100%; height: auto; background-position: center; background-attachment: fixed;")
     nav.navbar.navbar-expand-xl.navbar-dark(style=' background-color: #493844; position: fixed; width: 100%; z-index: 2;')
         #logobutton(style='z-index: 3; cursor: pointer' onclick="\
         location.href = 'http://lolai.kr/'; \
