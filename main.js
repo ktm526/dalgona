@@ -50,6 +50,10 @@ app.get('/', function(req, res){
     res.render('index');
 });
 
+app.get('/riot.txt', function(req, res){
+    res.send('6668ed14-f348-4a72-bd18-78655ed7de69');
+});
+
 
 app.get('/summoner', function(req, res){
     //api 호출
