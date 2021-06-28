@@ -190,7 +190,7 @@ app.get('/summoner', function(req, res){
                         })
                     
                     
-                    res.render('personal_page', {title1: name, player_level: summonerLevel, flexrank: flex_rank, solorank: solo_rank, flexwin: flex_win, flexlose:flex_lose, solowin: solo_win, sololose: solo_lose, soloranknum: solo_rank_num, flexranknum: flex_rank_num});
+                    res.render('personal_page', {title1: name, iconID: profileIconId, player_level: summonerLevel, flexrank: flex_rank, solorank: solo_rank, flexwin: flex_win, flexlose:flex_lose, solowin: solo_win, sololose: solo_lose, soloranknum: solo_rank_num, flexranknum: flex_rank_num});
 
                 }
                 )
