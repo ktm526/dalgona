@@ -7806,8 +7806,9 @@ body(style="font-family: 'Noto Sans Armenian', sans-serif; background-image: lin
                 a(href='#' style='color: rgba(186,174,160,1); text-decoration : none;') &#xC7A5;&#xC778;&#xB7AD;&#xD0B9;
         
         
-        form.form-inline.input-group(style='position: absolute; height: 40px; ')
-            input#navsearch.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search' width='100px' style='margin-left: 82vw; ')
+        form.form-inline.input-group(style='position: absolute; height: 40px;')
+            input#hiddeninput(hidden='hidden' onKeypress="if(event.keyCode == 13){const Username = document.getElementById('hiddeninput').value; location.href =  'http://lolai.kr/summoner/?id=' + Username;}") 
+            input#navsearch.form-control.mr-sm-2(placeholder='Search' onsubmit='return false;' aria-label='Search' width='100px' style='margin-left: 82vw;' onkeyup="if(event.keyCode==13){const Username = document.getElementById('hiddeninput').value; location.href =  'http://lolai.kr/summoner/?id=' + Username;")
             button.btn.btn-block.btn-outline-warning(type='button' style=' margin-right: 10px; width: 60px; color: gold;' onclick="\
             const Username = document.getElementById('navsearch').value;\
             location.href = 'http://lolai.kr/summoner/?id=' + Username;  \
@@ -7817,7 +7818,7 @@ body(style="font-family: 'Noto Sans Armenian', sans-serif; background-image: lin
         #__2_o
             #_49
                 #ID1
-                    img#ID4605(src='/public/asset_db/profileicon/'+ iconID + '.png')
+                    img#ID4605(src='http://ddragon.leagueoflegends.com/cdn/'+ '11.14.1' + '/img/profileicon/' + iconID + '.png')
                     #ID123
                         span=title1
                     #_1(onclick='location.reload();' style='cursor:pointer;')

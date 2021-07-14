@@ -36,13 +36,11 @@ nav.navbar.navbar-expand-xl.navbar-dark(style=' background-color: #493844; posit
       a(href='#' style='color: rgba(186,174,160,1); text-decoration : none;') &#xBA40;&#xD2F0;&#xC11C;&#xCE58;
     li(style='margin: 0 0 0 0; padding: 0 0 0 0; border: 0; float: left;')
       a(href='#' style='color: rgba(186,174,160,1); text-decoration : none;') &#xC7A5;&#xC778;&#xB7AD;&#xD0B9;
-  form.form-inline.input-group(style='position: absolute; height: 40px; ')
-    input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search' width='100px' style='margin-left: 82vw; ')
-    button.btn.btn-block.btn-outline-warning(type='submit' style=' margin-right: 10px; width: 60px; color: gold; ') &#x1F50E;&#xFE0E;
+
 form.form-inline.input-group(style='position: absolute; top: 40%; left:25%; right:25%; width: auto;')
   input#mainsearch.form-control.mr-sm-2(type='text' placeholder='소환사가 존재하지 않습니다. 다시 시도해주세요' aria-label='Search' style='' value='')
   button.btn.btn-block.btn-outline-warning(type='button' style='color: gold; width: 80px; height: 50px;' onclick="\
     const Username = document.getElementById('mainsearch').value;\
-    location.href = 'http://localhost:5000/summoner/?id=' + Username;  \
+    location.href = 'http://lolai.kr/summoner/?id=' + Username;  \
     ")
       | &#x1F50E;&#xFE0E;

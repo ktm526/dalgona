@@ -1,29 +1,3 @@
-/* var http = require('http');
-var fs = require('fs');
-var url = require('url');
-
-var app = http.createServer(function(request,response){
-    var _url = request.url;
-    var queryData = url.parse(_url, true).query;
-    title = queryData.id;
-    
-
-    console.log(queryData.id);
-    if(_url == '/favicon.ico'){
-        response.writeHead(404);
-        response.end();
-        return;
-    }
-    if(_url == '/'){
-        fs.readFile(`data/html/index`,'utf8',function(err,data){
-            var template = `${data}`;
-            response.end(template);
-        });
-    }
-
-});
-app.listen(5000); */
-
 const { json } = require('body-parser');
 const { urlencoded, response } = require('express');
 const express = require('express');
@@ -33,18 +7,20 @@ const fetch = require('node-fetch');
 var url = require('url');
 var path = require('path');
 const { callbackify } = require('util');
+var mysql = require('mysql');
+mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '111111',
+    database: 'dalgona'
+});
+
 app.locals.pretty = true;
 app.use(express.json());
-
 app.set('view engine', 'pug');
 app.set('views', './views');
 app.use("/public", express.static(path.join(__dirname, 'public')));
-
-app.listen(5000, function(){
-
-}
-    
-);
+app.listen(5000, function(){});
 
 app.get('/', function(req, res){
     res.render('index');
@@ -54,7 +30,6 @@ app.get('/riot.txt', function(req, res){
     res.send('6668ed14-f348-4a72-bd18-78655ed7de69');
 });
 
-
 app.get('/summoner', function(req, res){
     //api 호출
     var api_key = "RGAPI-050e49d7-79b4-4529-aded-d5c234477b35";
@@ -63,24 +38,6 @@ app.get('/summoner', function(req, res){
     input_name = queryData.id;
     console.log(queryData.id);
     var api_url = 'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + encodeURIComponent(input_name) +'?api_key=' + api_key;
-    // request(api_url, function(err, response, body){
-    //     console.log(api_url);
-    //     console.log(body);
-        
-    //     // var key = Object.keys(info_json);
-    //     // var result = "id: " +info_json[key]["id"];
-    //     console.log(api_url);
-    //     express.json(body);
-    //     console.log();
-    //     if(response.status == 404){
-            
-    //         res.render('summoner_noexist');
-    //     }
-    //     else{
-    //         res.render('index');
-    //     }
-    // } 
-    // );
     fetch(api_url)
         .then(response => {
             if(!response.ok){
@@ -183,29 +140,15 @@ app.get('/summoner', function(req, res){
                                     return response.json();
                                 })
                                 .then(data => {
-
-
                                 })
-
-                        })
-                    
-                    
+                        })                   
                     res.render('personal_page', {title1: name, iconID: profileIconId, player_level: summonerLevel, flexrank: flex_rank, solorank: solo_rank, flexwin: flex_win, flexlose:flex_lose, solowin: solo_win, sololose: solo_lose, soloranknum: solo_rank_num, flexranknum: flex_rank_num});
-
-                }
-                )
-            
+                })           
             var rank_url = ''+ encodeURIComponent(accountId) +'?api_key=' + api_key;
             var rank_url = ''+ encodeURIComponent(puuid) +'?api_key=' + api_key;
             console.log(name);
             console.log(profileIconId);
             console.log(summonerLevel);
-
-
-
-            
         });
-
-
     // res.render('personal_page', );
 });
